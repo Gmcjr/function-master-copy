@@ -89,13 +89,11 @@ return message;
 // this function takes an object, if object has a 'noises' array, return the elements as a string sep by a space - if no 'noises', return 'there are no noises'
 
 function maybeNoises(object) {
-if (object.hasOwnProperty('noises')) {
-    return object.noises.join(' ');
-} else if (object.noises !== []) {
-    return 'there are no noises';
-} else if (!object.hasOwnProperty('noises')) {
-    return 'there are no noises';
-}
+    if (object.hasOwnProperty('noises') && object.noises.length > 0) {
+        return object.noises.join(' ');
+    } else {
+        return 'there are no noises';
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -103,7 +101,7 @@ if (object.hasOwnProperty('noises')) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+return string.includes(word);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -111,15 +109,22 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
-}
+    if (!object.friends) {
+        object.friends = [];
+    } 
+    object.friends.push(name);
+    return object; 
+} 
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    if (object.friends && object.friends.includes(name)) {
+        return true;
+    }
+    return false;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -127,17 +132,42 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
-}
-
+   
+    var notFriends = [];
+   
+    for (let i = 0; i < array.length; i++) {
+        var friends = array[i].friends;
+        var isFriend = false;
+        if (array[i].name !== name) {
+        for (let j = 0; j < friends.length; i++) { 
+            if (friends[j] === name) {
+                isFriend = true;
+            }
+        }   if (!isFriend) {
+                notFriends.push(array[i].name);
+            }   else {
+                    isFriend = true;
+                }
+        }   
+            return notFriends;
+    }
+};
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
+    var props = Object.keys(object)
 
+    for (let i = 0; i < props.length; i++) {
+        if (Object.hasOwn(object, key)) {
+            return object.key.value;
+        } else {
+            return object[key] = value;
+        }
+    }
+    return object;
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////

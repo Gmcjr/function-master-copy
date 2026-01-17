@@ -159,14 +159,6 @@ function nonFriends(name, array) {
 function updateObject(object, key, value) {
     var props = Object.keys(object)
 
-    for (let i = 0; i < props.length; i++) {
-        if (Object.hasOwn(object, key)) {
-            return object.key.value;
-        } else {
-            return object[key] = value;
-        }
-    }
-    return object;
 }
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////

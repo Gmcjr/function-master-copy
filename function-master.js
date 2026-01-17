@@ -157,7 +157,11 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-    
+    object[key] = value;
+    if ((object.key) === false) {
+        object = object.key;
+    }
+    return object;
 }
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////

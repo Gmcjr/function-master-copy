@@ -168,7 +168,12 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    array.forEach(key => {
+        if (object.hasOwnProperty(key)) {
+            delete object[key];
+        }
+    });
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////

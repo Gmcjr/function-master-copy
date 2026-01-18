@@ -181,8 +181,14 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
-}
+    let newArray = [];
+    array.forEach(element => {
+        if (!newArray.incluldes(element)) {
+            newArray.push(element)
+        }
+    });
+    return newArray;
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

@@ -132,25 +132,27 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-   
-    var notFriends = [];
-   
-    for (let i = 0; i < array.length; i++) {
-        var friends = array[i].friends;
-        var isFriend = false;
-        if (array[i].name !== name) {
-        for (let j = 0; j < friends.length; i++) { 
-            if (friends[j] === name) {
-                isFriend = true;
-            }
-        }   if (!isFriend) {
-                notFriends.push(array[i].name);
-            }   else {
-                    isFriend = true;
-                }
-        }   
-            return notFriends;
+    var nameList = [];
+    var result = [];
+    var current = null;
+    for(var i=0; i<arr.length; i++){
+        if(name === arr[i].name){
+            current = arr[i];
+        }else{
+            nameList.push(arr[i].name);
+        }
     }
+
+    if(current === null){
+        return nameList;
+    }
+
+    for(var i=0; i<nameList.length; i++){
+        if(current.friends.indexOf(nameList[i]) == -1){
+            result.push(nameList[i]);
+        }
+    }
+    return result;
 };
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
@@ -181,9 +183,9 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-    let newArray = [];
+    var newArray = [];
     array.forEach(element => {
-        if (!newArray.incluldes(element)) {
+        if (!newArray.includes(element)) {
             newArray.push(element)
         }
     });

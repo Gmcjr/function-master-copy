@@ -135,20 +135,20 @@ function nonFriends(name, array) {
     var nameList = [];
     var result = [];
     var current = null;
-    for(var i=0; i<arr.length; i++){
-        if(name === arr[i].name){
-            current = arr[i];
+    for (var i=0; i<array.length; i++) {
+        if (name === array[i].name) {
+            current = array[i];
         }else{
-            nameList.push(arr[i].name);
+            nameList.push(array[i].name);
         }
     }
 
-    if(current === null){
+    if (current === null) {
         return nameList;
     }
 
-    for(var i=0; i<nameList.length; i++){
-        if(current.friends.indexOf(nameList[i]) == -1){
+    for (var i=0; i<nameList.length; i++) {
+        if (current.friends.indexOf(nameList[i]) == -1) {
             result.push(nameList[i]);
         }
     }
